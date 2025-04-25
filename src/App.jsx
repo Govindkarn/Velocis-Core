@@ -1,15 +1,35 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css'
-import Header from './components/Header'
+import './assets/css/Contact.css'
+import './assets/css/About.css'
+import './assets/css/Index.css'
+import './assets/css/Services.css'
+import './assets/css/Team.css'
+
+import Header  from './components/Header'
+import Index from './pages/Index';
+import About from './pages/About';
+import Contact from './pages/Contact';
+import Team from './pages/Team';
+import Footer from './components/Footer';
+import Services from './pages/Services'
+
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-    <Header></Header>
+    <BrowserRouter>
+      <Header/>
+      <Routes>
+        <Route path="/" element={<Index/>}/>
+        <Route path="/about" element={<About/>}/>
+        <Route path="/contact" element={<Contact/>}/>
+        <Route path="/services" element={<Services/>}/>
+        <Route path="/team" element={<Team/>}/>
+      </Routes>
+      <Footer/>
+      </BrowserRouter>
     </>
   )
 }
